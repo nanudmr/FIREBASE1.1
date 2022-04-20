@@ -1,7 +1,9 @@
 import { initializeApp } from "firebase/app"
 import {
-    getFirestore, collection, onSnapshot,
-    addDoc, deleteDoc, doc
+    getFirestore, collection, onSnapshot, getDocs,
+    addDoc, deleteDoc, doc,
+    query, where,
+    serverTimestamp
 } from "firebase/firestore"
 
 const zipContainer = document.querySelector(".zips")
@@ -33,20 +35,20 @@ const colZip = collection(db, "zipcodes")
 //     })
 
 // Real time data collection
-
 onSnapshot(colZip, (snapshot) => {
     const fireZips = []
     const validZips = []
+    zipContainer.innerHTML = ""
 
     snapshot.docs.forEach((zip) => {
         fireZips.push({...zip.data()})
+        // fireZips.push({...zip.keys.code})
     })
     for(zips of fireZips){
         validZips.push(zips.code) 
     }
 
-    console.log(fireZips[0].code)
-    console.log(validZips)
+    console.log(fireZips)
 
     if(validZips.length > 0){
         for(let zip of validZips){
@@ -75,7 +77,8 @@ const addZipCode = document.querySelector(".add")
 addZipCode.addEventListener("submit", (e) => {
     e.preventDefault()
     addDoc(colZip, {
-        code: addZipCode.code.value
+        code: addZipCode.code.value,
+        createdAt: serverTimestamp()
     }).then(() => {
         addZipCode.reset()
     })
