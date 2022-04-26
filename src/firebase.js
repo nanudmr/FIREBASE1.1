@@ -42,20 +42,18 @@ onSnapshot(colZip, (snapshot) => {
 
     snapshot.docs.forEach((zip) => {
         fireZips.push({...zip.data()})
-        // fireZips.push({...zip.keys.code})
     })
-    for(zips of fireZips){
+    for(let zips of fireZips){
         validZips.push(zips.code) 
     }
 
     console.log(fireZips)
-
     if(validZips.length > 0){
         for(let zip of validZips){
             zipContainer.innerHTML += `<p class="valid-zip">${zip} </p>`
         }
     } else {
-        zipContainer.innerHTML = "Empty string"
+        zipContainer.innerHTML = "No valid zip codes"
     }
 
     const form1 = document.getElementById("form1")
@@ -82,8 +80,9 @@ addZipCode.addEventListener("submit", (e) => {
     }).then(() => {
         addZipCode.reset()
     })
-
 })
+
+
 
 
 // Deleting documents
@@ -102,3 +101,18 @@ deleteZipCode.addEventListener('submit', (e) => {
 
 // finding zips
 
+
+
+
+// preloader
+const el = document.querySelector('.preloader');
+const body = document.querySelector(".content")
+
+let clear1 = () => {
+    el.style.display = 'none';
+    body.style.display = "block"
+}
+
+window.onload = function(){
+    setTimeout(clear1, 2500)
+};
