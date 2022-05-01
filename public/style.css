@@ -3,12 +3,3 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-.content{
-    display: none;
-}
-
-.preloader img{ 
-    width: 100vw;
-    height: 100vh;
-}

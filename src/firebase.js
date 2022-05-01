@@ -99,20 +99,10 @@ deleteZipCode.addEventListener('submit', (e) => {
 })
 
 
-// finding zips
+// RECAPTCHA
+
+function onSubmit(token) {
+    document.getElementById("demo-form").submit();
+  }
 
 
-
-
-// preloader
-const el = document.querySelector('.preloader');
-const body = document.querySelector(".content")
-
-let clear1 = () => {
-    el.style.display = 'none';
-    body.style.display = "block"
-}
-
-window.onload = function(){
-    setTimeout(clear1, 5500)
-};

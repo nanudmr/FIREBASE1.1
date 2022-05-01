@@ -12,11 +12,6 @@
 
     <body>
 
-        <div id="preloader" class="preloader">
-            <img src="/public/assets/lunatic-loader1.gif" alt="">
-            <p>hello</p>
-        </div>
-
         <div class="content">
             <h1>Hello World</h1>
 
@@ -27,7 +22,10 @@
 
             <form id="demo-form" class="add">
                 <input type="text" name="code" placeholder="Add zip code" required>
-                <button>Add Zip</button>
+                <button class="g-recaptcha" 
+                data-sitekey="6LdqLZYfAAAAAGaLCE_XMktG1y_VbHAsUltdQcAt" 
+                data-callback='onSubmit' 
+                data-action='submit'>Add Zip</button>
             </form>
 
             <form class="delete">
@@ -40,6 +38,7 @@
 
         </div>
 
+        <script src="https://www.google.com/recaptcha/api.js"></script>
         <script src="/src/index.js"></script>
         <script src="./bundle.js"></script>
     </body>
