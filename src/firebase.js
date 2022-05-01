@@ -114,5 +114,5 @@ let clear1 = () => {
 }
 
 window.onload = function(){
-    setTimeout(clear1, 2500)
+    setTimeout(clear1, 5500)
 };
