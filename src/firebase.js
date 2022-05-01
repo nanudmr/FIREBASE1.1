@@ -83,8 +83,6 @@ addZipCode.addEventListener("submit", (e) => {
 })
 
 
-
-
 // Deleting documents
 const deleteZipCode = document.querySelector('.delete')
 deleteZipCode.addEventListener('submit', (e) => {
