@@ -18,7 +18,7 @@ const firebaseConfig = {
 };
 
 // Init firebase app
-initializeApp(firebaseConfig)
+initializeApp(firebaseConfig) 
 
 // Init services
 const db = getFirestore()
@@ -96,6 +96,8 @@ deleteZipCode.addEventListener('submit', (e) => {
     })
 })
 
+
+console.log("hello")
 
 
 
